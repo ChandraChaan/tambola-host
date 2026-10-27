@@ -289,4 +289,20 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get claimLegend =>
       'Filled numbers have been called. Outlined numbers count for this prize.';
+
+  @override
+  String get printTickets => 'Print tickets (PDF)';
+
+  @override
+  String get printFailed => 'Couldn\'t create the PDF. Please try again.';
+
+  @override
+  String pdfTitle(String code) {
+    return 'Tambola tickets, game $code';
+  }
+
+  @override
+  String pdfFooter(int first, int last) {
+    return 'Tickets $first to $last. Each full page of six tickets uses every number from 1 to 90 once.';
+  }
 }
