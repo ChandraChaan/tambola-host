@@ -1,0 +1,27 @@
+name: tambola_host
+description: "Host a Tambola (Housie) game: number caller, printable tickets and a claim checker."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  flutter_riverpod: ^3.4.3
+  flutter_tts: ^4.2.5
+  go_router: ^17.5.0
+  intl: any
+  shared_preferences: ^2.5.6
+
+dev_dependencies:
+  flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  generate: true
+  uses-material-design: true
