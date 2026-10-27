@@ -39,6 +39,8 @@ no ads, nothing to install.
 - Tickets come in **strips of six that use all 90 numbers exactly once**, like
   the printed books.
 - Each ticket shows its number and the game code.
+- **Print or save as PDF** from the Tickets tab: one strip of six tickets per
+  A4 page, with dashed lines to cut along.
 
 **Claim checker**
 - Type the ticket number, pick the prize (Early Five, Top / Middle / Bottom line,
@@ -57,8 +59,8 @@ no ads, nothing to install.
 
 1. Open the app on the device you'll call from. A new game with a six-letter
    **game code** (for example `K7QX2M`) is ready.
-2. **Tickets** tab: set how many tickets you need and hand them out, one
-   ticket number per player.
+2. **Tickets** tab: set how many tickets you need, tap the printer icon to
+   print them (or save the PDF and share it), and hand them out.
 3. **Caller** tab: press **Next number** for each call, or **Auto-play** and
    set the speed. Turn on voice and rhymes under **Settings** (the sliders icon).
    On a TV, connect a laptop and make the browser full-screen.

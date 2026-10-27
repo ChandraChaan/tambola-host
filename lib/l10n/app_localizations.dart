@@ -537,6 +537,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Filled numbers have been called. Outlined numbers count for this prize.'**
   String get claimLegend;
+
+  /// No description provided for @printTickets.
+  ///
+  /// In en, this message translates to:
+  /// **'Print tickets (PDF)'**
+  String get printTickets;
+
+  /// No description provided for @printFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t create the PDF. Please try again.'**
+  String get printFailed;
+
+  /// No description provided for @pdfTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Tambola tickets, game {code}'**
+  String pdfTitle(String code);
+
+  /// No description provided for @pdfFooter.
+  ///
+  /// In en, this message translates to:
+  /// **'Tickets {first} to {last}. Each full page of six tickets uses every number from 1 to 90 once.'**
+  String pdfFooter(int first, int last);
 }
 
 class _AppLocalizationsDelegate

@@ -1,3 +1,5 @@
+import 'dart:developer' as developer;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -5,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/l10n.dart';
 import '../../game/domain/game.dart';
 import '../../game/presentation/game_controller.dart';
+import 'ticket_printer_provider.dart';
 import 'ticket_view.dart';
 
 class TicketsScreen extends ConsumerWidget {
@@ -24,6 +27,12 @@ class TicketsScreen extends ConsumerWidget {
       appBar: AppBar(
         title: Text(l10n.ticketsTitle),
         actions: [
+          IconButton(
+            key: const Key('print-tickets'),
+            tooltip: l10n.printTickets,
+            icon: const Icon(Icons.print_outlined),
+            onPressed: () => _print(context, ref),
+          ),
           IconButton(
             key: const Key('ticket-count'),
             tooltip: l10n.changeTicketCount,
@@ -51,6 +60,32 @@ class TicketsScreen extends ConsumerWidget {
         ),
       ),
     );
+  }
+
+  Future<void> _print(BuildContext context, WidgetRef ref) async {
+    final l10n = context.l10n;
+    final game = ref.read(gameProvider);
+    final tickets = ref.read(ticketGeneratorProvider).tickets(game.ticketCount);
+    try {
+      await ref
+          .read(ticketPrinterProvider)
+          .printTickets(
+            tickets: tickets,
+            gameCode: game.code,
+            labels: (
+              documentTitle: l10n.pdfTitle(game.code),
+              ticketHeading: l10n.ticketHeading,
+              gameCode: l10n.gameCodeLabel,
+              pageFooter: l10n.pdfFooter,
+            ),
+          );
+    } on Object catch (e, stack) {
+      developer.log('Printing tickets failed', error: e, stackTrace: stack);
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(l10n.printFailed)));
+    }
   }
 
   Future<void> _changeCount(

@@ -91,5 +91,11 @@
   "@claimNeedsMore": {"placeholders": {"count": {"type": "int"}}},
   "claimUnknownTicket": "Ticket {number} is not in this game. Tickets run from 1 to {max}.",
   "@claimUnknownTicket": {"placeholders": {"number": {"type": "int"}, "max": {"type": "int"}}},
-  "claimLegend": "Filled numbers have been called. Outlined numbers count for this prize."
+  "claimLegend": "Filled numbers have been called. Outlined numbers count for this prize.",
+  "printTickets": "Print tickets (PDF)",
+  "printFailed": "Couldn't create the PDF. Please try again.",
+  "pdfTitle": "Tambola tickets, game {code}",
+  "@pdfTitle": {"placeholders": {"code": {"type": "String"}}},
+  "pdfFooter": "Tickets {first} to {last}. Each full page of six tickets uses every number from 1 to 90 once.",
+  "@pdfFooter": {"placeholders": {"first": {"type": "int"}, "last": {"type": "int"}}}
 }
